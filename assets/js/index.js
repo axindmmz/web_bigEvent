@@ -9,7 +9,7 @@ $(function () {
             //do something
             // 1.清空本地的请求头
             localStorage.removeItem('token')
-            // 2.返回注册和登录页面
+            // 2.返回登录页面
             location.href = '/login.html'
             layer.close(index);
           });
@@ -44,7 +44,7 @@ function getUserInfo(){
         //     if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
         //         // 1.清空本地的请求头
         //         localStorage.removeItem('token')
-        //         // 2.返回注册和登录页面
+        //         // 2.返回登录页面
         //         location.href = '/login.html'
         //     }
         // }
@@ -56,12 +56,12 @@ function renderAvatar(name) {
     var uname = name.nickname || name.username
     // console.log(uname);
     // 渲染页面
-    $('.welcome').html('欢迎  ' + uname)
+    $('.welcome').html('欢迎&nbsp;&nbsp' + uname)
 
     // 判断按需显示头像
     if (name.user_pic  !== null){
         // 如果不显示为空，则显示图片头像   
-        $('.layui-nav-img').attr('scr',name.user_pic).show()
+        $('.layui-nav-img').attr('src',name.user_pic).show()
         $('.avatar').hide()
     }else {
          // 如果显示为空，则显示文本头像

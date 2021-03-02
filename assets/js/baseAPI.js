@@ -13,12 +13,12 @@ $.ajaxPrefilter(function (options) {
     // 在调用权限接口的时候，指定complete回调函数
     // 不论成功还是失败，最终都睡调用complete回调函数
     options.complete = function(res){
-        console.log(res);
+        // console.log(res);
         // 在complete回调函数中，使用res.responseJSON获取服务器返回来的数据
         if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
             // 1.清空本地的请求头
             localStorage.removeItem('token')
-            // 2.返回注册和登录页面
+            // 2.返回登录页面
             location.href = '/login.html'
         }
     }
