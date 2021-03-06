@@ -22,4 +22,9 @@ $.ajaxPrefilter(function (options) {
             location.href = '/login.html'
         }
     }
+
+    // 屏蔽回车键
+    document.onkeydown = function (e) {  
+        if (e.keyCode === 13) return false
+    }
 })
